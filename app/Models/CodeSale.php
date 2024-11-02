@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Category extends Model
+class CodeSale extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
-    public function product(): HasMany
+    public function order(): HasMany
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Order::class);
     }
 }
