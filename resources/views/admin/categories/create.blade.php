@@ -17,15 +17,15 @@
             <input type="text" name="name" placeholder="Nhập tên danh mục">
             </div>
             @csrf
-            {{-- @if($error->any())
+            @if($errors->any())
             <div>
                 <ul>
-                    @foreach ($error->all() as $error)
+                    @foreach ($errors->all() as $error)
                        <li>{{$error}}</li> 
                     @endforeach
                 </ul>
             </div>
-            @endif --}}
+            @endif
             <button type="submit">Thêm</button>    
         </form>
     </div>
