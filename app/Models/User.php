@@ -55,9 +55,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Product::class, 'comments');
     }
 
-    public function putProductInCart(): BelongsToMany
+    public function cart(): HasMany
     {
-        return $this->belongsToMany(Product::class, 'carts');
+        return $this->hasMany(Cart::class);
     }
 
     public function payment(): HasMany

@@ -15,9 +15,14 @@ class Product extends Model
 
     public $timestamps = false;
 
-    public function addedToCard(): BelongsToMany
+    public function cartItem(): HasMany
     {
-        return $this->belongsToMany(User::class, 'carts');
+        return $this->hasMany(CartItem::class);
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ProductImage::class);
     }
 
     public function commented(): BelongsToMany
@@ -35,10 +40,6 @@ class Product extends Model
         return $this->hasOne(ProductImage::class)->oldestOfMany('position');
     }
 
-    public function images(): HasMany
-    {
-        return $this->hasMany(ProductImage::class);
-    }
 
     public function  category(): BelongsTo
     {
