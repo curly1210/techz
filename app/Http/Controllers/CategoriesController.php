@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCategory;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -30,11 +31,10 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategory $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:30'
-        ]);
+
+        $request->validated();
         Category::create($request->all());
         return redirect('admin/categories')->with('status', 'Thêm thành công');
     }
@@ -72,5 +72,14 @@ class CategoriesController extends Controller
     {
         $category->delete();
         return redirect('admin/categories')->with('status', "Xóa thành công");
+    }
+    public function search(Request $request)
+    {
+        $search = $request->name;
+        $query = Category::query();
+        $categories = $query->where('name', 'like', "%$search%")->get();
+        // dd($categories);
+
+        return view("admin.categories.index", compact('search', 'categories'));
     }
 }
