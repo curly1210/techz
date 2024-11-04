@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->timestamp('order_time');
-            $table->integer('total_price');
-            $table->foreignId('shipment_id')->constrained('shipments');
+            // $table->integer('total_price');
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('status_order_id')->constrained('status_orders');
+            $table->foreignId('shipment_id')->constrained('shipments');
             $table->foreignId('payment_id')->constrained('payments');
-            $table->foreignId('code_sale_id')->constrained('code_sales');
+            $table->foreignId('status_order_id')->constrained('status_orders');
+            $table->foreignId('code_sale_id')->nullable()->constrained('code_sales');
         });
     }
 

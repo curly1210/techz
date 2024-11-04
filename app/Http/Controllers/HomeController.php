@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         //     Category::factory()->count(3)->create();
         //     Product::factory()->count(5)->create();
-        //     User::factory()->count(1)->create();
+        // User::factory()->count(1)->create();
         //     User::factory()
         //         ->hasAttached(
         //             Product::factory()->count(1),

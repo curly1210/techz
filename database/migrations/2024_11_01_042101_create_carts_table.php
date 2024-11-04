@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->boolean('on_stage');
+            // $table->boolean('on_stage');
             $table->foreignId('user_id')->constrained('users');
         });
     }

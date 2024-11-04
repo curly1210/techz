@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('province', 50);
             $table->string('city', 50);
-            $table->string('district', 50);
+            // $table->string('district', 50);
             $table->string('address');
             $table->foreignId('user_id')->constrained('users');
         });
