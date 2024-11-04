@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\Category;
+use App\Models\CodeSale;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Payment;
@@ -48,6 +49,15 @@ class DatabaseSeeder extends Seeder
             "Máy tính" => ["iMac", "Dell OptiPlex 7080", "HP EliteDesk 800", "Lenovo IdeaCentre AIO"],
             "Âm thanh" => ["Loa JBL Charge 5", "Tai nghe Sony WH-1000XM5", "Amply Denon PMA-600NE", "Loa Bluetooth Bose SoundLink Mini"]
         ];
+
+        CodeSale::factory()
+            ->sequence(
+                ['name' => 'VN50', 'price' => '50000', 'quantity' => '23'],
+                ['name' => 'VN30', 'price' => '30000', 'quantity' => '12'],
+                ['name' => 'VN20', 'price' => '20000', 'quantity' => '10']
+            )
+            ->count(3)
+            ->create();
 
         // Category, Product, ImageProduct, Comment
         foreach ($categories as $categorie => $products) {
